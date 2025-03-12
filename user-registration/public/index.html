@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+</head>
+<body>
+    <h1>User Registration</h1>
+    
+    <!-- Registration Form -->
+    <form id="registration-form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <button type="submit">Register</button>
+    </form>
+
+    <script>
+        // JavaScript to handle form submission
+        document.getElementById('registration-form').addEventListener('submit', async (e) => {
+            e.preventDefault();  // Prevents default form submission
+
+            // Get form data
+            const formData = new FormData(e.target);
+            const data = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                password: formData.get('password')
+            };
+
+            // Send POST request to Node.js backend
+            const response = await fetch('http://13.233.105.126:3000/register', {
+                method: 'POST',  // Ensure it's a POST request
+                headers: {
+                    'Content-Type': 'application/json'  // Specify content type as JSON
+                },
+                body: JSON.stringify(data)  // Send the form data as JSON
+            });
+
+            // Handle the response from the backend
+            const result = await response.json();
+            if (response.ok) {
+                alert('Registration Successful!');
+            } else {
+                alert('Registration Failed: ' + result.message);
+            }
+        });
+    </script>
+</body>
+</html>
