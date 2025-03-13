@@ -78,6 +78,7 @@ This will:
 # 6. BUILD DOCKERFILE AND CREATE CONTAINER
 
 Run the Application
+
     1. Build the Node.js Docker image:
        ```bash
        docker build -t node-app .
