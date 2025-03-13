@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+</head>
+<body style="font-family: 'Arial', sans-serif; background-color: #f4f4f9; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0;">
+    <div style="background-color: #ffffff; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); width: 300px;">
+        <h1 style="color: #333; text-align: center; margin-bottom: 1.5rem;">User Registration</h1>
+        
+        <!-- Registration Form -->
+        <form id="registration-form">
+            <label for="name" style="display: block; margin-bottom: 0.5rem; color: #555;">Name:</label>
+            <input type="text" id="name" name="name" required style="width: 100%; padding: 0.5rem; margin-bottom: 1rem; border: 1px solid #ccc; border-radius: 5px; font-size: 1rem;"><br><br>
+
+            <label for="email" style="display: block; margin-bottom: 0.5rem; color: #555;">Email:</label>
+            <input type="email" id="email" name="email" required style="width: 100%; padding: 0.5rem; margin-bottom: 1rem; border: 1px solid #ccc; border-radius: 5px; font-size: 1rem;"><br><br>
+
+            <label for="password" style="display: block; margin-bottom: 0.5rem; color: #555;">Password:</label>
+            <input type="password" id="password" name="password" required style="width: 100%; padding: 0.5rem; margin-bottom: 1.5rem; border: 1px solid #ccc; border-radius: 5px; font-size: 1rem;"><br><br>
+
+            <button type="submit" style="width: 100%; padding: 0.75rem; background-color: #007bff; color: white; border: none; border-radius: 5px; font-size: 1rem; cursor: pointer;">
+                Register
+            </button>
+        </form>
+    </div>
+
+    <script>
+        // JavaScript to handle form submission
+        document.getElementById('registration-form').addEventListener('submit', async (e) => {
+            e.preventDefault();  // Prevents default form submission
+
+            // Get form data
+            const formData = new FormData(e.target);
+            const data = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                password: formData.get('password')
+            };
+
+            // Send POST request to Node.js backend
+            const response = await fetch('http://localhost:3000/register', {
+                method: 'POST',  // Ensure it's a POST request
+                headers: {
+                    'Content-Type': 'application/json'  // Specify content type as JSON
+                },
+                body: JSON.stringify(data)  // Send the form data as JSON
+            });
+
+            // Handle the response from the backend
+            const result = await response.json();
+            if (response.ok) {
+                alert('Registration Successful!');
+            } else {
+                alert('Registration Failed: ' + result.message);
+            }
+        });
+    </script>
+</body>
+</html>
