@@ -1,5 +1,6 @@
 # 1. DOCKER INSTALL
 
+```bash
 sudo apt install docker.io
 
 sudo systemctl start docker
@@ -7,7 +8,7 @@ sudo systemctl start docker
 sudo systemctl enable docker 
 
 sudo systemctl status docker
-
+```
 
 
 2. INSTALL NPM
