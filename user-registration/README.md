@@ -28,7 +28,7 @@ npm -v
 
 # 3. CREATE MYSQL CONTAINER
 
-Run mysql ooficial image from docker hub(this creates database)
+Run mysql official image from docker hub(this creates database)
 ```bash
 docker run --name mysql-db -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=userdb -p 3306:3306 -d mysql:5.7
 ```
@@ -87,5 +87,9 @@ Run the Application
        docker run --name node-app --link mysql-db:mysql -p 3000:3000 -d node-app
        ```
     3. Access the application:
-        ◦ Open your browser and go to http://your-ec2-public-ip:3000.
+    
+        ◦ Open your browser and go to 
+        ```bash
+        http://your-ec2-public-ip:3000.
+        ```
         ◦ Fill out the registration form and submit it.
