@@ -79,18 +79,20 @@ This will:
 
 Run the Application
 
-    1. Build the Node.js Docker image:
-       ```bash
-       docker build -t node-app .
-       ```
-    2. Run the Node.js container and link it to the MySQL container:
-       ```bash
-       docker run --name node-app --link mysql-db:mysql -p 3000:3000 -d node-app
-       ```
-    3. Access the application:
-    
-        ◦ Open your browser and go to 
-        ```bash
-        http://your-ec2-public-ip:3000.
-        ```
-        ◦ Fill out the registration form and submit it.
+Build the Node.js Docker image:
+```bash
+docker build -t node-app .
+```
+
+Run the Node.js container and link it to the MySQL container:
+```bash
+docker run --name node-app --link mysql-db:mysql -p 3000:3000 -d node-app
+```
+
+Access the application:
+
+Open your browser and go to
+```bash
+http://your-ec2-public-ip:3000.
+```
+Fill out the registration form and submit it.
