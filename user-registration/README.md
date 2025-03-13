@@ -1,4 +1,4 @@
-1. DOCKER INSTALL
+# 1. DOCKER INSTALL
 
 sudo apt install docker.io
 
