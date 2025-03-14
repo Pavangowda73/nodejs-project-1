@@ -101,5 +101,5 @@ Fill out the registration form and submit it.
 
 # OUTPUT
 
-![Alt text](../images/image1.png)
+![Alt text](nodejs-project-1/images/image1.png)
 
