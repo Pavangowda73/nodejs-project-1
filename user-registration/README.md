@@ -101,4 +101,4 @@ Fill out the registration form and submit it.
 
 # OUTPUT
 
-![Alt text](/images/to/image1.png)
+![Alt text](./images/image1.png)
