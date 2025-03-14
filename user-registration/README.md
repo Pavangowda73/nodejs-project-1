@@ -96,3 +96,9 @@ Open your browser and go to
 http://your-ec2-public-ip:3000.
 ```
 Fill out the registration form and submit it.
+
+
+
+# OUTPUT
+
+![Alt text](/images/to/image1.png)
